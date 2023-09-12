@@ -25,7 +25,7 @@ void printMatrix(int **arr, int n)
         printf("%d\n", arr[i][n - 1]);
     }
 }
-int *fromMatrixToArr(int **matrix, int n)
+int *SpiralFromLeftAngle(int **matrix, int n)
 {
     int size = n * n;
     int *newArr = malloc(sizeof(int) * size);
@@ -35,7 +35,6 @@ int *fromMatrixToArr(int **matrix, int n)
     int UpBorder = 0;
     int LeftBorder = 0;
 
-    // Переменные счетчики используемые в расчетах
     int i = 0; // Координары строки
     int j = 0; // Координаты столбца
 
@@ -43,13 +42,6 @@ int *fromMatrixToArr(int **matrix, int n)
     {
         for (int m = 0; m < n; m++)
         {
-            if (k * n + m == (n - 1) * 4 - 1) // прошел круг, нужно срезать рамки
-            {
-                DownBorder--;
-                RightBorder--;
-                UpBorder++;
-                LeftBorder++;
-            }
             newArr[i * n + j] = matrix[k][m];
             if (i == UpBorder && j < RightBorder)
                 j++;
@@ -59,6 +51,14 @@ int *fromMatrixToArr(int **matrix, int n)
                 j--;
             else if (j == LeftBorder && i > UpBorder)
                 i--;
+
+            if ((i == UpBorder + 1) && (j == LeftBorder)) // прошел круг, нужно срезать рамки
+            {
+                DownBorder--;
+                RightBorder--;
+                UpBorder++;
+                LeftBorder++;
+            }
         }
     }
     return newArr;
@@ -86,7 +86,7 @@ int main()
     printMatrix(matrix, n);
 
     printf("---------------------------\n");
-    int *arr = fromMatrixToArr(matrix, n);
+    int *arr = SpiralFromLeftAngle(matrix, n);
     printArr(arr, n);
 
     for (int i = 0; i < n; i++)
