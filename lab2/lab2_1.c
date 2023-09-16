@@ -109,7 +109,7 @@ int *SpiralFromCenter(int **matrix, int n)
     return newArr;
 }
 
-int *RightDiagonal(int **matrix, int n)
+int *LeftDiagonal(int **matrix, int n)
 {
     int mi = 1, size = n * n, g = 0, key = 0, pr = 0, key2 = 0;
     int *newArr = malloc(sizeof(int) * size);
@@ -152,6 +152,50 @@ int *RightDiagonal(int **matrix, int n)
     return newArr;
 }
 
+int *RightDiagonal(int **matrix, int n)
+{
+    int mi = -1, size = n * n, g = 4, key = 0, pr = 0, key2 = 0;
+    int *newArr = malloc(sizeof(int) * size);
+
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            newArr[g] = matrix[i][j];
+
+            if (!(pr < key))
+            {
+                if( (key2 == 0) && (key < n-1) )
+                {
+                    g += mi;
+                    key++;
+                    mi -= (n+1);
+                }
+                else
+                {
+                    if(key2 == 0)
+                    {
+                        mi += (n+1);
+                    }
+                    key2 = 1;
+                    g += mi;
+                    key--;
+                    mi += (n+1);
+                }
+                pr = 0;
+            }
+            else
+            {
+                g += (n+1);
+                pr++;
+            }
+        }
+    }
+
+    return newArr;
+}
+
+
 void printArr(int *arr, int n)
 {
     for (int i = 0; i < n; i++)
@@ -167,7 +211,6 @@ void printArr(int *arr, int n)
 
 void printdi(int *arr, int n)
 {
-    printf("sfasdfasfdgdfgw\n");
     int p = 0;
 
     for (int i = 0; i < n; i++)
@@ -204,13 +247,19 @@ int main()
     int *arr2 = SpiralFromCenter(matrix, n);
     printArr(arr2, n);
 
-    puts("RightDiagonal\n");
-    int *arr3 = RightDiagonal(matrix, n);
+    puts("LeftDiagonal\n");
+    int *arr3 = LeftDiagonal(matrix, n);
     printdi(arr3, n);
+
+    puts("RightDiagonal\n");
+    int *arr4 = RightDiagonal(matrix, n);
+    printdi(arr4, n);
 
     for (int i = 0; i < n; i++)
         free(matrix[i]);
     free(matrix);
     free(arr1);
     free(arr2);
+    free(arr3);
+    free(arr4);
 }
