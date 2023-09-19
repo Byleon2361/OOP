@@ -122,28 +122,28 @@ int *LeftDiagonal(int **matrix, int n)
 
             if (!(pr < key))
             {
-                if( (key2 == 0) && (key < n-1) )
+                if ((key2 == 0) && (key < n - 1))
                 {
                     g += mi;
                     key++;
-                    mi -= n-1;
+                    mi -= n - 1;
                 }
                 else
                 {
-                    if(key2 == 0)
+                    if (key2 == 0)
                     {
-                        mi += n-1;
+                        mi += n - 1;
                     }
                     key2 = 1;
                     g += mi;
                     key--;
-                    mi += n-1;
+                    mi += n - 1;
                 }
                 pr = 0;
             }
             else
             {
-                g += n-1;
+                g += n - 1;
                 pr++;
             }
         }
@@ -165,28 +165,28 @@ int *RightDiagonal(int **matrix, int n)
 
             if (!(pr < key))
             {
-                if( (key2 == 0) && (key < n-1) )
+                if ((key2 == 0) && (key < n - 1))
                 {
                     g += mi;
                     key++;
-                    mi -= (n+1);
+                    mi -= (n + 1);
                 }
                 else
                 {
-                    if(key2 == 0)
+                    if (key2 == 0)
                     {
-                        mi += (n+1);
+                        mi += (n + 1);
                     }
                     key2 = 1;
                     g += mi;
                     key--;
-                    mi += (n+1);
+                    mi += (n + 1);
                 }
                 pr = 0;
             }
             else
             {
-                g += (n+1);
+                g += (n + 1);
                 pr++;
             }
         }
@@ -194,7 +194,6 @@ int *RightDiagonal(int **matrix, int n)
 
     return newArr;
 }
-
 
 void printArr(int *arr, int n)
 {
@@ -249,7 +248,8 @@ int main()
 
     puts("LeftDiagonal\n");
     int *arr3 = LeftDiagonal(matrix, n);
-    printdi(arr3, n);
+    printArr(arr3, n);
+    // printdi(arr3, n);
 
     puts("RightDiagonal\n");
     int *arr4 = RightDiagonal(matrix, n);
