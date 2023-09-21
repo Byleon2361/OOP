@@ -2,9 +2,8 @@
 #include "Animal.h"
 class Rabbit : protected Animal
 {
+public:
 private:
-    Rabbit();
-    ~Rabbit();
     int change(int d) override; // d - direction
     int changeAge() override;
     int changeDirection() override;

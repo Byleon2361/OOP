@@ -3,8 +3,6 @@
 class Fox : protected Animal
 {
 private:
-    Fox();
-    ~Fox();
     int change(int d) override; // d - direction
     int changeAge() override;
     int changeDirection() override;

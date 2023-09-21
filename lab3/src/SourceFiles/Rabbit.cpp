@@ -1,10 +1,6 @@
 #include "Rabbit.h"
-Rabbit::Rabbit()
-{
-}
-Rabbit::~Rabbit()
-{
-}
+#include "Fox.h"
+#include <iostream>
 int Rabbit::change(int d)
 {
 }
