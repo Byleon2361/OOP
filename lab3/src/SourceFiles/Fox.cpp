@@ -1,12 +1,12 @@
 #include "Fox.h"
+#include <iostream>
+using namespace std;
 Fox::Fox()
-{
-}
-Fox::~Fox()
 {
 }
 int Fox::change(int d)
 {
+    cout << "Fox";
 }
 int Fox::changeAge()
 {

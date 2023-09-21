@@ -14,10 +14,10 @@ protected:
     ~Animal();
     int step; // шаг хода, у зайца - 1, у лисы - 2
     void move();
-    virtual int change(int d); // d - direction
-    virtual int changeAge();
-    virtual int changeDirection();
-    virtual void eat();   // 🍍
-    virtual void death(); // ☠
-    virtual void sex();   // 🥵
+    virtual int change(int d) = 0; // d - direction
+    virtual int changeAge() = 0;
+    virtual int changeDirection() = 0;
+    virtual void eat() = 0;   // 🍍
+    virtual void death() = 0; // ☠
+    virtual void sex() = 0;   // 🥵
 };
