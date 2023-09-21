@@ -10,9 +10,8 @@ public:
     int age;
 
 protected:
-    Animal();
-    ~Animal();
     int step; // шаг хода, у зайца - 1, у лисы - 2
+    int deathAge;
     void move();
     virtual int change(int d) = 0; // d - direction
     virtual int changeAge() = 0;

@@ -3,9 +3,6 @@
 class Rabbit : protected Animal
 {
 public:
-    Rabbit();
-    ~Rabbit();
-
 private:
     int change(int d) override; // d - direction
     int changeAge() override;

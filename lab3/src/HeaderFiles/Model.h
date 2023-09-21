@@ -6,9 +6,6 @@ using std::vector;
 class Model
 {
 public:
-    Model();
-    ~Model();
-
 private:
     vector<Fox> masF;
     vector<Rabbit> masR;
