@@ -5,5 +5,6 @@
 using namespace std;
 int main()
 {
+    Fox fox;
     return 0;
 }
