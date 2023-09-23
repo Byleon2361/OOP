@@ -1,16 +1,21 @@
 #pragma once
 #include "Animal.h"
+#include "Rabbit.h"
 class Fox : public Animal
 {
 public:
-    Fox(); // deathAge(15), step(2), age(0), stability(0), x(0), y(0), direction(rand() % 3);
-    ~Fox();
+    Fox() : Animal()
+    {
+        Animal::deathAge = 15;
+        Animal::step = 2;
+    }
+    ~Fox() override;
 
 private:
     int changeAge() override;
-    void eat() override;   // 🍍
-    void death() override; // ☠
-    void sex() override;   // 🥵
+    void eat(Rabbit *rabbit); // 🍍
+    void death() override;    // ☠
+    void sex() override;      // 🥵
 public:
     // геттеры и сеттеры
     int get_x() const;

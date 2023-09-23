@@ -1,7 +1,10 @@
 #pragma once
+#include <cstdlib>
 class Animal
 {
 public:
+    Animal() : age(0), stability(0), x(0), y(0), direction(rand() % 3) {}
+    virtual ~Animal();
     // координаты зверя на поле
     int x;
     int y;

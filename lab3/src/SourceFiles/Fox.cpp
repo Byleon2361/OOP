@@ -1,20 +1,8 @@
 #include "Fox.h"
+#include "Rabbit.h"
 #include <iostream>
 #include <cstdlib>
 using namespace std;
-Fox::Fox()
-{
-    deathAge = 15;
-    step = 2;
-    age = 0;
-    stability = 0;
-    x = 0;
-    y = 0;
-    direction = rand() % 3;
-}
-Fox::~Fox()
-{
-}
 int Fox::changeAge()
 {
     if (age > 15)
@@ -24,16 +12,21 @@ int Fox::changeAge()
     return age++;
 }
 // нужен class model
-void Fox::eat()
+void Fox::eat(Rabbit *rabbit)
 {
+    saturation++;
+    if (saturation == 2)
+        sex();     //))))))))))))))))))))))()O())))))))
+    delete rabbit; //((((((((
 }
 // лишняя
 void Fox::death()
 {
-    // cout << "death form fox";
 }
 void Fox::sex()
 {
+    this->saturation = 0;
+    Fox *secondFox = this;
 }
 int Fox::get_x() const
 {
