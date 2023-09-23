@@ -25,6 +25,9 @@ $(BINDIR)/program: $(OBJECTS)
 # Правило сборки по умолчанию
 all: $(BINDIR)/program
 
+run:
+	./$(BINDIR)/program
+
 # Правило очистки собранных файлов
 clean:
 	rm -f $(OBJDIR)/*.o $(BINDIR)/program

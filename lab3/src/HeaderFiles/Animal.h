@@ -1,7 +1,10 @@
 #pragma once
+#include <cstdlib>
 class Animal
 {
 public:
+    Animal() : age(0), stability(0), x(0), y(0), direction(rand() % 3) {}
+    virtual ~Animal();
     // координаты зверя на поле
     int x;
     int y;
@@ -12,10 +15,10 @@ public:
 protected:
     int step; // шаг хода, у зайца - 1, у лисы - 2
     int deathAge;
-    void move();
-    virtual int change(int d) = 0; // d - direction
+    int saturation;     // насыщение
+    void change(int d); // d - direction
+    int changeDirection();
     virtual int changeAge() = 0;
-    virtual int changeDirection() = 0;
     virtual void eat() = 0;   // 🍍
     virtual void death() = 0; // ☠
     virtual void sex() = 0;   // 🥵
