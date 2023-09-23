@@ -12,13 +12,10 @@ Fox::Fox()
     y = 0;
     int direction = rand() % 3;
 }
-int Fox::change(int d)
+void Fox::change(int d)
 {
 }
 int Fox::changeAge()
-{
-}
-int Fox::changeDirection()
 {
 }
 void Fox::eat()
