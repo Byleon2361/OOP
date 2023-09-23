@@ -3,7 +3,11 @@
 class Rabbit : protected Animal
 {
 public:
-    Rabbit();
+    Rabbit() : Animal()
+    {
+        Animal::deathAge = 10;
+        Animal:: step = 1;
+    }
     ~Rabbit();
 
 private:

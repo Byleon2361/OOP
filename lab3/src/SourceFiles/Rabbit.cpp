@@ -2,16 +2,7 @@
 #include <iostream>
 #include <cstdlib>
 using namespace std;
-Rabbit::Rabbit()
-{
-    deathAge = 10;
-    step = 1;
-    age = 0;
-    stability = 0;
-    x = 0;
-    y = 0;
-    direction = rand() % 3;
-}
+
 Rabbit::~Rabbit()
 {
 }
@@ -46,6 +37,7 @@ int Rabbit::changeAge()
 {
     if (age > 10)
     {
+        sex();
         this->~Rabbit();
     }
     return age++;
@@ -61,4 +53,5 @@ void Rabbit::death()
 }
 void Rabbit::sex()
 {
+
 }
