@@ -17,13 +17,6 @@ Rabbit::~Rabbit()
 }
 void Rabbit::change(int d)
 {
-    if ((rand()%100) < (100 - stability))
-    {
-        direction++;
-        if(direction == 3)
-            direction = 0;
-    }
-
     switch(direction)
     {
     case 0:
@@ -40,7 +33,16 @@ void Rabbit::change(int d)
         break;
     }
 }
-int Rabbit::changeAge(int age)
+void Rabbit::changeDirection()
+{
+    if ((rand()%100) < (100 - stability))
+    {
+        direction++;
+        if(direction == 3)
+            direction = 0;
+    }
+}
+int Rabbit::changeAge()
 {
     if (age > 10)
     {
@@ -48,10 +50,11 @@ int Rabbit::changeAge(int age)
     }
     return age++;
 }
-//нахуй
+/*//нахуй
 void Rabbit::eat()
 {
 }
+*/
 void Rabbit::death()
 {
     this->~Rabbit();

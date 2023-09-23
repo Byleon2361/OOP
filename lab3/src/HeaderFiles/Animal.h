@@ -14,6 +14,7 @@ protected:
     int deathAge;
     void move();
     virtual void change(int d) = 0; // d - direction
+    virtual void changeDirection();
     virtual int changeAge() = 0;
     virtual void eat() = 0;   // 🍍
     virtual void death() = 0; // ☠
