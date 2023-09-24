@@ -8,11 +8,11 @@ public:
         Animal::deathAge = 10;
         Animal::step = 1;
     }
-    ~Rabbit() override;
+    ~Rabbit() {}
 
 private:
     int changeAge() override;
-    void eat() override;   // 🍍
-    void death() override; // ☠
-    void sex() override;   // 🥵
+    void eat();             // 🍍
+    void death() override;  // ☠
+    Animal *sex() override; // 🥵
 };

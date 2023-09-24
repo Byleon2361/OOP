@@ -10,6 +10,6 @@ void Rabbit::eat()
 void Rabbit::death()
 {
 }
-void Rabbit::sex()
+Animal *Rabbit::sex()
 {
 }

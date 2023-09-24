@@ -23,26 +23,11 @@ void Fox::eat(Rabbit *rabbit)
 void Fox::death()
 {
 }
-void Fox::sex()
+Animal *Fox::sex()
 {
     this->saturation = 0;
-    Fox *secondFox = this;
-}
-int Fox::get_x() const
-{
-    return x;
-}
-int Fox::get_y() const
-{
-    return y;
-}
-int Fox::get_stability() const
-{
-    return stability;
-}
-int Fox::get_direction() const
-{
-    return direction;
+    Fox *newFox = this;
+    return newFox;
 }
 void Fox::set_food(int foodCount)
 {

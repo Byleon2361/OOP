@@ -1,7 +1,7 @@
 # Определение компилятора и флагов компиляции
 CXX := g++
 CPPFLAGS := -Isrc/HeaderFiles
-CXXFLAGS := -std=c++11
+CXXFLAGS := -g -O0 -std=c++11
 
 # Определение директорий
 SRCDIR := src/SourceFiles

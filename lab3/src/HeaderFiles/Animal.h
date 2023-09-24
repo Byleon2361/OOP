@@ -4,7 +4,7 @@ class Animal
 {
 public:
     Animal() : age(0), stability(0), x(0), y(0), direction(rand() % 3) {}
-    virtual ~Animal();
+    ~Animal() {}
     // координаты зверя на поле
     int x;
     int y;
@@ -19,7 +19,7 @@ protected:
     void change(int d); // d - direction
     int changeDirection();
     virtual int changeAge() = 0;
-    virtual void eat() = 0;   // 🍍
-    virtual void death() = 0; // ☠
-    virtual void sex() = 0;   // 🥵
+    // void eat() ;   // 🍍
+    virtual void death() = 0;  // ☠
+    virtual Animal *sex() = 0; // 🥵
 };
