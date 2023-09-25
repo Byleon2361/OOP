@@ -3,9 +3,6 @@
 #include <cstdlib>
 using namespace std;
 
-Rabbit::~Rabbit()
-{
-}
 void Rabbit::change(int d)
 {
     switch(direction)
@@ -41,22 +38,6 @@ int Rabbit::changeAge()
         this->~Rabbit();
     }
     return age++;
-}
-int Rabbit::get_x() const
-{
-    return x;
-}
-int Rabbit::get_y() const
-{
-    return y;
-}
-int Rabbit::get_stability() const
-{
-    return stability;
-}
-int Rabbit::get_direction() const
-{
-    return direction;
 }
 /*//нахуй
 void Rabbit::eat()
