@@ -3,6 +3,10 @@
 #include <iostream>
 #include <cstdlib>
 using namespace std;
+void Fox::Move()
+{
+    change(changeDirection());
+}
 int Fox::changeAge()
 {
     if (age > 15)

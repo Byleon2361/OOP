@@ -1,10 +1,13 @@
 #include <iostream>
+#include <cstdio>
+#include <unistd.h>
 #include "Fox.h"
 #include "Rabbit.h"
 #include "Model.h"
 using namespace std;
 int main()
 {
+    srand(time(NULL));
     int n, m, countFoxes, countRabbits, x, y;
     Model model;
     cout << "Введите длину поля" << endl;
@@ -32,10 +35,19 @@ int main()
     {
         x = rand() % n;
         y = rand() % m;
+        cout << "y" << y << endl;
         Fox *fox = new Fox(x, y);
         model.set_fox(fox);
     }
-    // model.test();
-    model.printModel();
+    while (true)
+    {
+        std::cout << "\x1B[2J\x1B[H"; // типа выводит "clear" в bash
+        model.printModel();
+        cout << "n: " << Model::n << endl;
+        cout << "m: " << Model::m << endl;
+        cout << "Count foxes: " << model.get_countFoxes() << endl;
+        model.newStep();
+        sleep(1);
+    }
     return 0;
 }

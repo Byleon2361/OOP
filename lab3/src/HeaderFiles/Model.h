@@ -6,12 +6,13 @@ using std::vector;
 class Model
 {
 public:
+    static int n;
+    static int m;
     void test();
     void printModel();
+    void newStep();
 
 private:
-    int n;
-    int m;
     vector<Fox *> masF;
     vector<Rabbit *> masR;
     int **field;
@@ -20,6 +21,7 @@ public:
     // геттеры и сеттеры
     // int get_n() const;
     // int get_m() const;
+    int get_countFoxes() const { return masF.size(); }
     void set_field();
     void set_rabbit(Rabbit *rabbit);
     void set_fox(Fox *fox);

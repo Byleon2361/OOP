@@ -15,6 +15,7 @@ public:
         this->y = y;
     }
     ~Fox() {}
+    void Move();
 
 private:
     int changeAge() override;

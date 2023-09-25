@@ -1,6 +1,8 @@
 #include "Model.h"
 #include <iostream>
 using namespace std;
+int Model::n = 0;
+int Model::m = 0;
 void Model::printModel()
 {
     for (int i = 0; i < m; i++)
@@ -12,6 +14,8 @@ void Model::printModel()
     }
     for (int i = 0; i < masF.size(); i++)
     {
+        cout << "masF[i]->y" << masF[i]->y << endl;
+        cout << "masF[i]->x" << masF[i]->x << endl;
         field[masF[i]->y][masF[i]->x]--;
     }
     for (int i = 0; i < m; i++)
@@ -39,9 +43,9 @@ void Model::set_field()
 {
     if (n > 0 && m > 0)
     {
-        field = new int *[n];
-        for (int i = 0; i < n; i++)
-            field[i] = new int[m];
+        field = new int *[m];
+        for (int i = 0; i < m; i++)
+            field[i] = new int[n];
     }
 }
 void Model::test()
@@ -51,5 +55,12 @@ void Model::test()
     {
         cout << "X: " << f->x << endl;
         cout << "Y: " << f->y << endl;
+    }
+}
+void Model::newStep()
+{
+    for (Fox *fox : masF)
+    {
+        fox->Move();
     }
 }
