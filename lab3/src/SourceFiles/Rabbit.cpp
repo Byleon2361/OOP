@@ -3,33 +3,11 @@
 #include <cstdlib>
 using namespace std;
 
-void Rabbit::change(int d)
+viod Fox::Move()
 {
-    switch(direction)
-    {
-    case 0:
-        y += step;
-        break;
-    case 1:
-        x += step;
-        break;
-    case 2:
-        y -= step;
-        break;
-    case 3:
-        x -= step;
-        break;
-    }
+    change(changeDirection());
 }
-void Rabbit::changeDirection()
-{
-    if ((rand()%100) < (100 - stability))
-    {
-        direction++;
-        if(direction == 3)
-            direction = 0;
-    }
-}
+
 int Rabbit::changeAge()
 {
     if (age > 10)
@@ -37,18 +15,17 @@ int Rabbit::changeAge()
         sex();
         this->~Rabbit();
     }
-    return age++;
+    
+    eturn age++;
 }
-/*//нахуй
-void Rabbit::eat()
-{
-}
-*/
+
 void Rabbit::death()
 {
     this->~Rabbit();
 }
+
 void Rabbit::sex()
 {
-
+    Rabbit *newRabbit = this;
+    return newRabbit;
 }

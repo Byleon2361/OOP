@@ -8,16 +8,18 @@ public:
         Animal::deathAge = 10;
         Animal:: step = 1;
     }
+    Rabbit(int x, int y) : Rabbit()
+    {
+        this->x = x;
+        this->y = y;
+    }
     ~Rabbit() {};
     void Move();
 
 private:
-    void change(int d) override; // d - direction
-    void changeDirection() override;
-    int changeAge() override;
-    void eat() override;   // 🍍
-    void death() override; // ☠
-    void sex() override;   // 🥵
+    int changeAge() ;
+    void death() ; // ☠
+    Animal *sex() ;   // 🥵
 
 public:
     int get_x() const {return x;}
