@@ -18,24 +18,23 @@ int main()
     model.set_n(n);
     model.set_m(m);
     model.set_field();
-    /*
+
     cout << "Введите количество зайцев" << endl;
     cin >> countRabbits;
     for (int i = 0; i < countRabbits; i++)
     {
         x = rand() % n;
         y = rand() % m;
-        Rabbit *rabbit = new Rabbit(x,y);
+        Rabbit *rabbit = new Rabbit(x, y);
         model.set_rabbit(rabbit);
     }
-    */
+
     cout << "Введите количество лисов" << endl;
     cin >> countFoxes;
     for (int i = 0; i < countFoxes; i++)
     {
         x = rand() % n;
         y = rand() % m;
-        cout << "y" << y << endl;
         Fox *fox = new Fox(x, y);
         model.set_fox(fox);
     }

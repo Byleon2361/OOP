@@ -18,6 +18,12 @@ void Model::printModel()
         cout << "masF[i]->x" << masF[i]->x << endl;
         field[masF[i]->y][masF[i]->x]--;
     }
+    for (int i = 0; i < masR.size(); i++)
+    {
+        cout << "masR[i]->y" << masR[i]->y << endl;
+        cout << "masR[i]->x" << masR[i]->x << endl;
+        field[masR[i]->y][masR[i]->x]++;
+    }
     for (int i = 0; i < m; i++)
     {
         for (int j = 0; j < n; j++)
