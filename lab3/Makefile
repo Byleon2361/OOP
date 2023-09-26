@@ -26,7 +26,7 @@ $(BINDIR)/program: $(OBJECTS)
 all: $(BINDIR)/program
 
 run:
-	./$(BINDIR)/program
+	./$(BINDIR)/program input.txt
 
 # Правило очистки собранных файлов
 clean:
