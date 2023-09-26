@@ -69,4 +69,8 @@ void Model::newStep()
     {
         fox->Move();
     }
+    for (Rabbit *rabbit : masR)
+    {
+        rabbit->Move();
+    }
 }
