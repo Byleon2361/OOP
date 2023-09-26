@@ -3,7 +3,7 @@
 #include <cstdlib>
 using namespace std;
 
-viod Fox::Move()
+void Rabbit::Move()
 {
     change(changeDirection());
 }
@@ -16,7 +16,7 @@ int Rabbit::changeAge()
         this->~Rabbit();
     }
     
-    eturn age++;
+    return age++;
 }
 
 void Rabbit::death()
@@ -24,7 +24,7 @@ void Rabbit::death()
     this->~Rabbit();
 }
 
-void Rabbit::sex()
+Animal *Rabbit::sex()
 {
     Rabbit *newRabbit = this;
     return newRabbit;

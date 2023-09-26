@@ -17,9 +17,9 @@ public:
     void Move();
 
 private:
-    int changeAge() ;
-    void death() ; // ☠
-    Animal *sex() ;   // 🥵
+    int changeAge() override;
+    void death() override; // ☠
+    Animal *sex() override;   // 🥵
 
 public:
     int get_x() const {return x;}
