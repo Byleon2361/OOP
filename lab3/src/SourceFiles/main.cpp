@@ -45,6 +45,7 @@ int main()
         cout << "n: " << Model::n << endl;
         cout << "m: " << Model::m << endl;
         cout << "Count foxes: " << model.get_countFoxes() << endl;
+        cout << "Count rabbits: " << model.get_countRabbits() << endl;
         model.newStep();
         sleep(1);
     }

@@ -1,11 +1,14 @@
 #pragma once
+#include <iostream>
 #include "Animal.h"
 #include "Rabbit.h"
+using namespace ::std;
 class Fox : public Animal
 {
 public:
     Fox() : Animal()
     {
+        cout << "Фокс создан" << endl;
         Animal::deathAge = 15;
         Animal::step = 2;
     }
@@ -25,7 +28,7 @@ public:
         this->step = fox->step;
         this->saturation = 0;
     }
-    ~Fox() {}
+    ~Fox() { cout << "Фокс сдох, гондон он ебучий" << endl; }
     void Move();
     void eat(); // 🍍
     int changeAge() override;

@@ -69,29 +69,34 @@ void Model::newStep()
     for (Rabbit *rabbit : masR)
     {
         rabbit->Move();
+        rabbit->age++;
+
         if (rabbit->age == 5)
         {
             masR.push_back(rabbit->sex());
         }
-        else if (rabbit->age == rabbit->deathAge)
+
+        if (rabbit->age == rabbit->deathAge)
         {
-            masR.push_back(rabbit->sex());
             auto indexDeadRabbit = find(masR.begin(), masR.end(), rabbit);
             masR.erase(indexDeadRabbit);
             delete rabbit;
+
+            masR.push_back(rabbit->sex());
         }
-        rabbit->changeAge();
     }
     for (Fox *fox : masF)
     {
         fox->Move();
+        fox->age++;
         for (Rabbit *rabbit : masR)
         {
-            if (fox->x == rabbit->x && fox->y == rabbit->y)
+            if ((fox->x == rabbit->x) && (fox->y == rabbit->y))
             {
                 auto indexDeadRabbit = find(masR.begin(), masR.end(), rabbit);
                 masR.erase(indexDeadRabbit);
                 delete rabbit;
+
                 fox->saturation++;
                 if (fox->saturation == 2)
                 {
@@ -106,6 +111,5 @@ void Model::newStep()
             masF.erase(indexDeadFox);
             delete fox;
         }
-        fox->changeAge();
     }
 }

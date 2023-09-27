@@ -25,7 +25,8 @@ void Fox::death()
 }
 Fox *Fox::sex()
 {
-    Fox *newFox = new Fox(*this);
+    Fox *newFox = new Fox();
+    newFox = this;
     return newFox;
 }
 void Fox::set_food(int foodCount)

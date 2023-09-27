@@ -22,6 +22,7 @@ public:
     // int get_n() const;
     // int get_m() const;
     int get_countFoxes() const { return masF.size(); }
+    int get_countRabbits() const { return masR.size(); }
     void set_field();
     void set_rabbit(Rabbit *rabbit);
     void set_fox(Fox *fox);

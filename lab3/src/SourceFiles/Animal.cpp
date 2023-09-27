@@ -14,12 +14,12 @@ void Animal::change(int d)
         break;
     case 1:
         x += step;
-        if (x >= Model::n)
+        if (x > Model::n - 1)
             x = 0;
         break;
     case 2:
         y += step;
-        if (y >= Model::m)
+        if (y > Model::m - 1)
             y = 0;
         break;
     case 3:
@@ -31,7 +31,7 @@ void Animal::change(int d)
 }
 int Animal::changeDirection()
 {
-    if (1)
+    if (0)
     {
         direction++;
         if (direction == 3)
