@@ -14,14 +14,24 @@ public:
         this->x = x;
         this->y = y;
     }
+    Fox(const Fox *&fox)
+    {
+        this->x = fox->x;
+        this->y = fox->y;
+        this->direction = fox->direction;
+        this->stability = fox->stability;
+        this->age = 0;
+        this->deathAge = fox->deathAge;
+        this->step = fox->step;
+        this->saturation = 0;
+    }
     ~Fox() {}
     void Move();
-
-private:
+    void eat(); // 🍍
     int changeAge() override;
-    void eat(Rabbit *rabbit); // 🍍
-    void death() override;    // ☠
-    Animal *sex() override;   // 🥵
+    void death() override; // ☠
+    Fox *sex();            // 🥵
+    int saturation;        // насыщение
 public:
     // геттеры и сеттеры
     int get_x() const { return x; }

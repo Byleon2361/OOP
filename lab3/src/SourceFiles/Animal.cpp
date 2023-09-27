@@ -31,7 +31,7 @@ void Animal::change(int d)
 }
 int Animal::changeDirection()
 {
-    if ((rand() % 100) > (100 - stability))
+    if (1)
     {
         direction++;
         if (direction == 3)

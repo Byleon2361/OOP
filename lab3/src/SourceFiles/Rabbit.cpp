@@ -10,12 +10,6 @@ void Rabbit::Move()
 
 int Rabbit::changeAge()
 {
-    if (age > 10)
-    {
-        sex();
-        this->~Rabbit();
-    }
-    
     return age++;
 }
 
@@ -24,8 +18,8 @@ void Rabbit::death()
     this->~Rabbit();
 }
 
-Animal *Rabbit::sex()
+Rabbit *Rabbit::sex()
 {
-    Rabbit *newRabbit = this;
+    Rabbit *newRabbit = new Rabbit(*this);
     return newRabbit;
 }

@@ -2,6 +2,7 @@
 #include "Rabbit.h"
 #include <iostream>
 #include <cstdlib>
+
 using namespace std;
 void Fox::Move()
 {
@@ -9,28 +10,22 @@ void Fox::Move()
 }
 int Fox::changeAge()
 {
-    if (age > 15)
-    {
-        this->~Fox();
-    }
     return age++;
 }
 // нужен class model
-void Fox::eat(Rabbit *rabbit)
+void Fox::eat()
 {
     saturation++;
     if (saturation == 2)
-        sex();     //))))))))))))))))))))))()O())))))))
-    delete rabbit; //((((((((
+        sex();
 }
 // лишняя
 void Fox::death()
 {
 }
-Animal *Fox::sex()
+Fox *Fox::sex()
 {
-    this->saturation = 0;
-    Fox *newFox = this;
+    Fox *newFox = new Fox(*this);
     return newFox;
 }
 void Fox::set_food(int foodCount)

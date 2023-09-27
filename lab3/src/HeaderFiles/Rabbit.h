@@ -13,13 +13,21 @@ public:
         this->x = x;
         this->y = y;
     }
+    Rabbit(const Rabbit *&rabbit)
+    {
+        this->x = rabbit->x;
+        this->y = rabbit->y;
+        this->direction = rabbit->direction;
+        this->stability = rabbit->stability;
+        this->age = 0;
+        this->deathAge = rabbit->deathAge;
+        this->step = rabbit->step;
+    }
     ~Rabbit(){};
     void Move();
-
-private:
     int changeAge() override;
-    void death() override;  // ☠
-    Animal *sex() override; // 🥵
+    void death() override; // ☠
+    Rabbit *sex();         // 🥵
 
 public:
     int get_x() const { return x; }

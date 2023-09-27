@@ -1,5 +1,6 @@
 #include "Model.h"
 #include <iostream>
+#include <algorithm>
 using namespace std;
 int Model::n = 0;
 int Model::m = 0;
@@ -65,12 +66,46 @@ void Model::test()
 }
 void Model::newStep()
 {
-    for (Fox *fox : masF)
-    {
-        fox->Move();
-    }
     for (Rabbit *rabbit : masR)
     {
         rabbit->Move();
+        if (rabbit->age == 5)
+        {
+            masR.push_back(rabbit->sex());
+        }
+        else if (rabbit->age == rabbit->deathAge)
+        {
+            masR.push_back(rabbit->sex());
+            auto indexDeadRabbit = find(masR.begin(), masR.end(), rabbit);
+            masR.erase(indexDeadRabbit);
+            delete rabbit;
+        }
+        rabbit->changeAge();
+    }
+    for (Fox *fox : masF)
+    {
+        fox->Move();
+        for (Rabbit *rabbit : masR)
+        {
+            if (fox->x == rabbit->x && fox->y == rabbit->y)
+            {
+                auto indexDeadRabbit = find(masR.begin(), masR.end(), rabbit);
+                masR.erase(indexDeadRabbit);
+                delete rabbit;
+                fox->saturation++;
+                if (fox->saturation == 2)
+                {
+                    masF.push_back(fox->sex());
+                    fox->saturation = 0;
+                }
+            }
+        }
+        if (fox->age == fox->deathAge)
+        {
+            auto indexDeadFox = find(masF.begin(), masF.end(), fox);
+            masF.erase(indexDeadFox);
+            delete fox;
+        }
+        fox->changeAge();
     }
 }
