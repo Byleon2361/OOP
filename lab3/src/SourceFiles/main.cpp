@@ -3,27 +3,24 @@
 #include <cstring>
 #include <unistd.h>
 #include <stdlib.h>
+#include <fstream>
 #include "Fox.h"
 #include "Rabbit.h"
 #include "Model.h"
 using namespace std;
 int main(int argc, char *argv[])
 {   
-    if (argc != 2){
-        printf("The number of arguments passed must be one\n");
-        return 1;
-    }
+    //if (argc != 2){ cout << "The number of arguments passed must be one" << endl;return 1;}
 
-    FILE *fp = fopen(argv[1], "r");
-    printf("%s\n", argv[1]);
-    char *str, *token;
+    ifstream fin("input.txt");
+    //printf("%s\n", argv[1]);
+    char str[50], *token;
 
-    if (!fp){
-        printf("не удалось открыть файл\n");
-        return 1;
-    }
+    if (!fin.is_open()){ cout << "не удалось открыть файл" << endl; return 1; }
 
-    fgets(str, 123, fp);
+    //fgets(str, 123, fp);
+    fin.getline(str, 50);
+    cout << "ya pidr\n" << str;
     token = strtok(str, " ");
 
     srand(time(NULL));
@@ -37,14 +34,14 @@ int main(int argc, char *argv[])
     model.set_m(m);
     model.set_field();
 
-    fgets(str, 123, fp);
+    fin.getline(str, 50);
     token = strtok(str, " ");   
     countRabbits = atoi(token); token = strtok(NULL, " ");
     countFoxes = atoi(token);
     
     for (int i = 0; i < countRabbits; i++)
     {
-        fgets(str, 123, fp);
+        fin.getline(str, 50);
         token = strtok(str, " "); 
         x = atoi(token); token = strtok(NULL, " ");
         y = atoi(token);
@@ -54,7 +51,7 @@ int main(int argc, char *argv[])
 
     for (int i = 0; i < countFoxes; i++)
     {
-        fgets(str, 123, fp);
+        fin.getline(str, 50);
         token = strtok(str, " "); 
         x = atoi(token); token = strtok(NULL, " ");
         y = atoi(token);

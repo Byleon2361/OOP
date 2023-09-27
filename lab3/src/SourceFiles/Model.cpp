@@ -30,7 +30,7 @@ void Model::printModel()
         {
 
             if (field[i][j] == 0)
-                cout << '*';
+                cout << "*";
             else
                 cout << field[i][j];
         }
