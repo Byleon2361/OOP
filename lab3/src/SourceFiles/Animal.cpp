@@ -31,11 +31,13 @@ void Animal::change(int d)
 }
 int Animal::changeDirection()
 {
-    if (0)
+    changeDir++;
+    if (changeDir == 2)
     {
         direction++;
-        if (direction == 3)
+        if (direction == 4)
             direction = 0;
+        changeDir = 0;
     }
     return direction;
 }

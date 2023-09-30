@@ -20,7 +20,7 @@ void Rabbit::death()
 
 Rabbit *Rabbit::sex()
 {
-    Rabbit *newRabbit = new Rabbit();
-    newRabbit = this;
+    Rabbit *newRabbit = new Rabbit(*this);
+    // newRabbit = this;
     return newRabbit;
 }

@@ -3,7 +3,7 @@
 class Animal
 {
 public:
-    Animal() : age(0), stability(0), x(0), y(0), direction(rand() % 4) {}
+    Animal() : age(0), changeDir(0), stability(0), x(0), y(0), direction(rand() % 4) {}
     ~Animal() {}
     // координаты зверя на поле
     int x;
@@ -12,6 +12,7 @@ public:
     int stability;
     int age;
     int deathAge;
+    int changeDir;
 
 protected:
     int step;           // шаг хода, у зайца - 1, у лисы - 2

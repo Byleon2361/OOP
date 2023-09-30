@@ -18,6 +18,7 @@ public:
         this->x = rabbit->x;
         this->y = rabbit->y;
         this->direction = rabbit->direction;
+        this->changeDir = 0;
         this->stability = rabbit->stability;
         this->age = 0;
         this->deathAge = rabbit->deathAge;

@@ -22,6 +22,7 @@ public:
         this->x = fox->x;
         this->y = fox->y;
         this->direction = fox->direction;
+        this->changeDir = 0;
         this->stability = fox->stability;
         this->age = 0;
         this->deathAge = fox->deathAge;

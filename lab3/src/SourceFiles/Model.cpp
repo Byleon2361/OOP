@@ -68,12 +68,13 @@ void Model::newStep()
 {
     for (Rabbit *rabbit : masR)
     {
+        cout << "rabbit direction" << rabbit->direction << endl;
         rabbit->Move();
         rabbit->age++;
-
         if (rabbit->age == 5)
         {
-            masR.push_back(rabbit->sex());
+            Rabbit *newRabbit = new Rabbit(*rabbit);
+            masR.push_back(newRabbit);
         }
 
         if (rabbit->age == rabbit->deathAge)
@@ -81,8 +82,8 @@ void Model::newStep()
             auto indexDeadRabbit = find(masR.begin(), masR.end(), rabbit);
             masR.erase(indexDeadRabbit);
             delete rabbit;
-
-            masR.push_back(rabbit->sex());
+            Rabbit *newRabbit = new Rabbit(*rabbit);
+            masR.push_back(newRabbit);
         }
     }
     for (Fox *fox : masF)
@@ -100,7 +101,8 @@ void Model::newStep()
                 fox->saturation++;
                 if (fox->saturation == 2)
                 {
-                    masF.push_back(fox->sex());
+                    Fox *newFox = new Fox(*fox);
+                    masF.push_back(newFox);
                     fox->saturation = 0;
                 }
             }
