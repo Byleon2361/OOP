@@ -1,10 +1,11 @@
 #include "Model.h"
 #include <iostream>
+#include <fstream>
 #include <algorithm>
 using namespace std;
 int Model::n = 0;
 int Model::m = 0;
-void Model::printModel()
+void Model::printModel(ofstream & inf)
 {
     for (int i = 0; i < m; i++)
     {
@@ -30,11 +31,14 @@ void Model::printModel()
         for (int j = 0; j < n; j++)
         {
 
-            if (field[i][j] == 0)
-                cout << '*';
-            else
-                cout << field[i][j];
+            if (field[i][j] == 0){
+                inf << '*';
+                cout << '*';}
+            else{
+                inf << field[i][j];
+                cout << field[i][j];}
         }
+        inf << endl;
         cout << endl;
     }
 }

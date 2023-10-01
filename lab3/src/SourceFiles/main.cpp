@@ -11,23 +11,19 @@ using namespace std;
 int main(int argc, char *argv[])
 {   
     //if (argc != 2){ cout << "The number of arguments passed must be one" << endl;return 1;}
-
     ifstream fin(argv[1]);
     //printf("%s\n", argv[1]);
     char str[50], *token;
 
     if (!fin.is_open()){ cout << "не удалось открыть файл" << endl; return 1; }
-
-    //fgets(str, 123, fp);
     fin.getline(str, 50);
-    cout << "ya pidr\n" << str;
     token = strtok(str, " ");
 
     srand(time(NULL));
     int n, m, AllCountSteps, countFoxes, countRabbits, x, y, direction, stability;
     Model model;
-    n = atoi(token); token = strtok(NULL, " ");
 
+    n = atoi(token); token = strtok(NULL, " ");
     m = atoi(token); token = strtok(NULL, " ");
     AllCountSteps = atoi(token);
     model.set_n(n);
@@ -64,8 +60,9 @@ int main(int argc, char *argv[])
     }
     for (int i = 0; i < AllCountSteps; i++)
     {
+        ofstream inf(argv[2]);
         std::cout << "\x1B[2J\x1B[H"; // типа выводит "clear" в bash
-        model.printModel();
+        model.printModel(inf);
         cout << "n: " << Model::n << endl;
         cout << "m: " << Model::m << endl;
         cout << "Count foxes: " << model.get_countFoxes() << endl;

@@ -9,7 +9,7 @@ public:
     static int n;
     static int m;
     void test();
-    void printModel();
+    void printModel(ofstream & inf);
     void newStep();
 
 private:
