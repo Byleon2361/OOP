@@ -29,9 +29,6 @@ public:
     }
     ~Rabbit(){};
     void Move();
-    int changeAge() override;
-    void death() override; // ☠
-    Rabbit *sex();         // 🥵
 
 public:
     int get_x() const { return x; }

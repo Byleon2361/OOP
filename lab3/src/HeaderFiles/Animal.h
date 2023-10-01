@@ -18,7 +18,4 @@ protected:
     int step;           // шаг хода, у зайца - 1, у лисы - 2
     void change(int d); // d - direction
     int changeDirection();
-    virtual int changeAge() = 0;
-    // void eat() ;   // 🍍
-    virtual void death() = 0; // ☠
 };

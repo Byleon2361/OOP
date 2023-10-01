@@ -5,7 +5,7 @@
 using namespace std;
 int Model::n = 0;
 int Model::m = 0;
-void Model::printModel(ofstream & inf)
+void Model::printModel(ofstream &inf)
 {
     for (int i = 0; i < m; i++)
     {
@@ -31,12 +31,16 @@ void Model::printModel(ofstream & inf)
         for (int j = 0; j < n; j++)
         {
 
-            if (field[i][j] == 0){
+            if (field[i][j] == 0)
+            {
                 inf << '*';
-                cout << '*';}
-            else{
+                cout << '*';
+            }
+            else
+            {
                 inf << field[i][j];
-                cout << field[i][j];}
+                cout << field[i][j];
+            }
         }
         inf << endl;
         cout << endl;
@@ -57,15 +61,6 @@ void Model::set_field()
         field = new int *[m];
         for (int i = 0; i < m; i++)
             field[i] = new int[n];
-    }
-}
-void Model::test()
-{
-    cout << "Count" << masF.size() << endl;
-    for (Fox *f : masF)
-    {
-        cout << "X: " << f->x << endl;
-        cout << "Y: " << f->y << endl;
     }
 }
 void Model::newStep()
@@ -101,8 +96,8 @@ void Model::newStep()
                 auto indexDeadRabbit = find(masR.begin(), masR.end(), rabbit);
                 masR.erase(indexDeadRabbit);
                 delete rabbit;
-
                 fox->saturation++;
+
                 if (fox->saturation == 2)
                 {
                     Fox *newFox = new Fox(*fox);
@@ -118,4 +113,20 @@ void Model::newStep()
             delete fox;
         }
     }
+}
+Model::~Model()
+{
+    for (int i = 0; i < masF.size(); i++)
+    {
+        delete masF[i];
+    }
+    for (int i = 0; i < masR.size(); i++)
+    {
+        delete masR[i];
+    }
+    for (int i = 0; i < m; i++)
+    {
+        delete[] field[i];
+    }
+    delete[] field;
 }

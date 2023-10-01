@@ -8,9 +8,9 @@ class Fox : public Animal
 public:
     Fox() : Animal()
     {
-        cout << "Фокс создан" << endl;
         Animal::deathAge = 15;
         Animal::step = 2;
+        saturation = 0;
     }
     Fox(int x, int y, int direction, int stability) : Fox()
     {
@@ -31,13 +31,8 @@ public:
         this->step = fox->step;
         this->saturation = 0;
     }
-    ~Fox() { cout << "Фокс сдох, гондон он ебучий" << endl; }
     void Move();
-    void eat(); // 🍍
-    int changeAge() override;
-    void death() override; // ☠
-    Fox *sex();            // 🥵
-    int saturation;        // насыщение
+    int saturation; // насыщение
 public:
     // геттеры и сеттеры
     int get_x() const { return x; }
