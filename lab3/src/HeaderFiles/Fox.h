@@ -12,10 +12,12 @@ public:
         Animal::deathAge = 15;
         Animal::step = 2;
     }
-    Fox(int x, int y) : Fox()
+    Fox(int x, int y, int direction, int stability) : Fox()
     {
         this->x = x;
         this->y = y;
+        this->direction = direction;
+        this->stability = stability;
     }
     Fox(const Fox *&fox)
     {

@@ -25,8 +25,9 @@ $(BINDIR)/program: $(OBJECTS)
 # Правило сборки по умолчанию
 all: $(BINDIR)/program
 
-run:
-	./$(BINDIR)/program
+#make run ARGS="input.txt"
+run: 
+	./$(BINDIR)/program $(ARGS) 
 
 # Правило очистки собранных файлов
 clean:

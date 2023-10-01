@@ -32,7 +32,7 @@ void Animal::change(int d)
 int Animal::changeDirection()
 {
     changeDir++;
-    if (changeDir == 2)
+    if (changeDir == stability)
     {
         direction++;
         if (direction == 4)

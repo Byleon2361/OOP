@@ -1,51 +1,74 @@
 #include <iostream>
 #include <cstdio>
+#include <cstring>
 #include <unistd.h>
+#include <stdlib.h>
+#include <fstream>
 #include "Fox.h"
 #include "Rabbit.h"
 #include "Model.h"
 using namespace std;
-int main()
-{
-    srand(time(NULL));
-    int n, m, countFoxes, countRabbits, x, y;
-    Model model;
-    cout << "Введите длину поля" << endl;
-    cin >> n;
+int main(int argc, char *argv[])
+{   
+    //if (argc != 2){ cout << "The number of arguments passed must be one" << endl;return 1;}
 
-    cout << "Введите длину ширину" << endl;
-    cin >> m;
+    ifstream fin(argv[1]);
+    //printf("%s\n", argv[1]);
+    char str[50], *token;
+
+    if (!fin.is_open()){ cout << "не удалось открыть файл" << endl; return 1; }
+
+    //fgets(str, 123, fp);
+    fin.getline(str, 50);
+    cout << "ya pidr\n" << str;
+    token = strtok(str, " ");
+
+    srand(time(NULL));
+    int n, m, AllCountSteps, countFoxes, countRabbits, x, y, direction, stability;
+    Model model;
+    n = atoi(token); token = strtok(NULL, " ");
+
+    m = atoi(token); token = strtok(NULL, " ");
+    AllCountSteps = atoi(token);
     model.set_n(n);
     model.set_m(m);
     model.set_field();
 
-    cout << "Введите количество зайцев" << endl;
-    cin >> countRabbits;
+    fin.getline(str, 50);
+    token = strtok(str, " ");   
+    countRabbits = atoi(token); token = strtok(NULL, " ");
+    countFoxes = atoi(token);
+    
     for (int i = 0; i < countRabbits; i++)
     {
-        x = rand() % n;
-        y = rand() % m;
-        Rabbit *rabbit = new Rabbit(x, y);
+        fin.getline(str, 50);
+        token = strtok(str, " "); 
+        x = atoi(token); token = strtok(NULL, " ");
+        y = atoi(token); token = strtok(NULL, " ");
+        direction = atoi(token); token = strtok(NULL, " ");
+        stability = atoi(token); 
+        Rabbit *rabbit = new Rabbit(x, y, direction, stability);
         model.set_rabbit(rabbit);
     }
 
-    cout << "Введите количество лисов" << endl;
-    cin >> countFoxes;
     for (int i = 0; i < countFoxes; i++)
     {
-        x = rand() % n;
-        y = rand() % m;
-        Fox *fox = new Fox(x, y);
+        fin.getline(str, 50);
+        token = strtok(str, " "); 
+        x = atoi(token); token = strtok(NULL, " ");
+        y = atoi(token); token = strtok(NULL, " ");
+        direction = atoi(token); token = strtok(NULL, " ");
+        stability = atoi(token); 
+        Fox *fox = new Fox(x, y, direction, stability);
         model.set_fox(fox);
     }
-    while (true)
+    for (int i = 0; i < AllCountSteps; i++)
     {
         std::cout << "\x1B[2J\x1B[H"; // типа выводит "clear" в bash
         model.printModel();
         cout << "n: " << Model::n << endl;
         cout << "m: " << Model::m << endl;
         cout << "Count foxes: " << model.get_countFoxes() << endl;
-        cout << "Count rabbits: " << model.get_countRabbits() << endl;
         model.newStep();
         sleep(1);
     }

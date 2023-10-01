@@ -8,15 +8,18 @@ public:
         Animal::deathAge = 10;
         Animal::step = 1;
     }
-    Rabbit(int x, int y) : Rabbit()
+    Rabbit(int x, int y, int direction, int stability) : Rabbit()
     {
         this->x = x;
         this->y = y;
+        this->direction = direction;
+        this->stability = stability;
     }
     Rabbit(const Rabbit *&rabbit)
     {
         this->x = rabbit->x;
         this->y = rabbit->y;
+        this->stability = rabbit->stability;
         this->direction = rabbit->direction;
         this->changeDir = 0;
         this->stability = rabbit->stability;
